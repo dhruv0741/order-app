@@ -87,15 +87,14 @@ The above CURL command will return all SKUs where the name starts with "laptop",
 
 CURL Command for Public API:
 
-curl --location 'https://inventory-app-325638869837.us-central1.run.app/api/inventory/addStock' \
---header 'Content-Type: application/json' \
---data '{"skuId": 1, "quantity": 10}'   
+curl --location 'https://inventory-app-325638869837.us-central1.run.app/api/inventory/addStock?skuId=1&quantity=10' \
+--header 'Accept: application/json'
 
 This is a POST endpoint that adds stock to a specific SKU.
 
 ### Parameters
-skuId (Path Variable): The ID of the SKU to add stock to
-quantity (Request Body): The quantity of stock to add   
+skuId (Query Parameter): The ID of the SKU to add stock to
+quantity (Query Parameter): The quantity of stock to add
 
 ### Response
 Returns a ResponseEntity<String> containing:
@@ -113,16 +112,15 @@ This above CURL command will add 10 units of stock to the SKU with ID 1.
 
 CURL Command for Public API:
 
-curl --location 'https://inventory-app-325638869837.us-central1.run.app/api/inventory/allocate' \
---header 'Content-Type: application/json' \
---data '{"skuId": 1, "orderNumber": 123456, "quantity": 5}'
+curl --location 'https://inventory-app-325638869837.us-central1.run.app/api/inventory/allocate?skuId=1&orderNumber=123456&quantity=5' \
+--header 'Accept: application/json'
 
 This is a POST endpoint that allocates stock to an order.
 
 ### Parameters
-skuId (Path Variable): The ID of the SKU to allocate stock to
-orderNumber (Request Body): The order number to allocate stock to
-quantity (Request Body): The quantity of stock to allocate
+skuId (Query Parameter): The ID of the SKU to allocate stock to
+orderNumber (Query Parameter): The order number to allocate stock to
+quantity (Query Parameter): The quantity of stock to allocate
 
 ### Response
 Returns a ResponseEntity<String> containing:
